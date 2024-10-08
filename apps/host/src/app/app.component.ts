@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+
+import { PluginsService } from '@nx-dyn-mf/plugins'
+import { appConfig } from './app.config';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [
+    RouterOutlet
+  ],
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  template: `
+    <h1>App</h1>
+    <router-outlet><router-outlet>
+  `,
 })
-export class AppComponent {
-  title = 'host';
-}
+export class AppComponent {}

@@ -1,10 +1,15 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import { PluginsModule } from '@nx-dyn-mf/plugins';
 import { provideRouter } from '@angular/router';
-import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(appRoutes),
+    provideRouter([
+      {
+        path: '',
+        loadComponent: () => import('@nx-dyn-mf/home').then(m => m.HomeComponent)
+      }
+    ]),
   ],
 };
