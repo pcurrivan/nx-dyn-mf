@@ -1,8 +1,8 @@
 export default {
-  displayName: 'nx-dyn-mf',
+  displayName: 'host',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/nx-dyn-mf',
+  coverageDirectory: '../../coverage/apps/host',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
